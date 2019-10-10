@@ -248,22 +248,21 @@ HELP;
         $connectErrorCount = number_format($this->connectErrorCount);
         $nSendBytes        = number_format($this->nSendBytes);
         $nRecvBytes        = number_format($this->nRecvBytes);
-        $requestPerSec     = $this->requestCount / $costTime;
+        $requestPerSec     = number_format($this->requestCount / $costTime);
         $connectTime       = $this->format($this->connectTime);
 
         echo <<<EOF
-Benchmark testing for {$this->srvUrl}
-
-Concurrency Level:      {$this->nConcurrency}
-Time taken for tests:   {$costTime} seconds
+\nBenchmark testing for {$this->srvUrl}
+===================================================
+Concurrency number:     {$this->nConcurrency}
 Complete requests:      {$nRequest}
+Time taken for tests:   {$costTime} seconds
 Failed requests:        {$requestErrorCount}
 Connect failed:         {$connectErrorCount}
 Total send:             {$nSendBytes} bytes
 Total receive:          {$nRecvBytes} bytes
 Requests per second:    {$requestPerSec}
-Connection time:        {$connectTime} seconds
-\n
+Connection time:        {$connectTime} seconds\n
 EOF;
     }
 
