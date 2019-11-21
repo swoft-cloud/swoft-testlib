@@ -32,7 +32,7 @@ class AutoLoader extends SwoftComponent
      * @return array
      * @see ComponentInterface::getMetadata()
      */
-    public function metadata(): array
+    protected function metadata(): array
     {
         $jsonFile = dirname(__DIR__) . '/composer.json';
 
